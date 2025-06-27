@@ -1,0 +1,138 @@
+# ------------------------
+# Python cache & build
+# ------------------------
+__pycache__/
+*.py[cod]
+*.so
+*.pyd
+*.pyo
+*.pyc
+*.pkl
+*.joblib
+
+# Distribution / Packaging
+build/
+dist/
+*.egg-info/
+.eggs/
+
+# Cython / C extensions
+*.c
+*.cpp
+*.ipynb_checkpoints/
+
+# ------------------------
+# Environment / Secrets
+# ------------------------
+.env
+.env.*
+.venv/
+venv/
+ENV/
+env/
+secrets.json
+credentials.json
+*.token
+*.key
+*.pem
+*.crt
+
+# ------------------------
+# Logs / Reports
+# ------------------------
+*.log
+*.out
+*.err
+*.report
+*.pid
+
+# ------------------------
+# Jupyter / Colab
+# ------------------------
+*.ipynb
+.ipynb_checkpoints/
+*.nbconvert.ipynb
+*.checkpoint
+
+# ------------------------
+# VSCode / JetBrains IDEs
+# ------------------------
+.vscode/
+.idea/
+*.code-workspace
+
+# ------------------------
+# OS / System
+# ------------------------
+.DS_Store
+Thumbs.db
+Desktop.ini
+ehthumbs.db
+Icon?
+*.swp
+*~
+
+# ------------------------
+# Model & Training Artifacts
+# ------------------------
+*.h5
+*.hdf5
+*.pt
+*.pth
+*.bin
+*.onnx
+*.ckpt
+*.pb
+*.tflite
+*.npy
+*.npz
+*.sav
+
+# ------------------------
+# Output / Generated Files
+# ------------------------
+*.csv
+*.json
+*.txt
+*.tsv
+*.xlsx
+*.xml
+*.pdf
+
+# ------------------------
+# Checkpoints & Weights
+# ------------------------
+checkpoints/
+runs/
+logs/
+weights/
+models/
+model/
+outputs/
+output/
+
+# ------------------------
+# TF-IDF or NLP Feature Storage
+# ------------------------
+vectorizer.pkl
+tfidf.pkl
+countvectorizer.pkl
+
+# ------------------------
+# Colab-Specific Paths (if downloaded/uploaded)
+# ------------------------
+/content/intent_model.bin
+/content/vectorizer.pkl
+/content/test_whatsapp_intents_output.csv
+/content/processed_whatsapp_intents_first.csv
+
+# ------------------------
+# Cache
+# ------------------------
+.cache/
+pip-wheel-metadata/
+__pycache__/
+.mypy_cache/
+.pytest_cache/
+.jupyter/
+.local/
