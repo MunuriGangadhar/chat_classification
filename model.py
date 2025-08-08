@@ -68,7 +68,7 @@ def create_train_state(rng, model, input_shape, learning_rate):
     return train_state.TrainState.create(
         apply_fn=model.apply, params=params, tx=tx)
 
-# Compute accuracy
+# Computing the accuracy
 def compute_accuracy(logits, labels):
     pred_class = jnp.argmax(logits, axis=1)
     true_class = jnp.argmax(labels, axis=1)
