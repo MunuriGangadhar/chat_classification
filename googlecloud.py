@@ -33,7 +33,6 @@ def configure_vertex_ai(project_id, location, model_name):
         logger.error(f"Failed to initialize Vertex AI client: {str(e)}")
         raise
 
-# Enhanced preprocessing
 def preprocess_message(message):
     logger.debug(f"Preprocessing message: {message}")
     message = re.sub(r'^~[^:]+:\s*', '', message)
@@ -53,7 +52,7 @@ def preprocess_message(message):
     logger.debug(f"Cleaned message: {cleaned_message}, Language: {language}")
     return cleaned_message, language
 
-# Intent classification and entity extraction
+
 def classify_and_extract(message, model):
     """Classify intent and extract entities using Vertex AI Gemini model."""
     prompt = f"""
@@ -116,7 +115,7 @@ Output:
             "error": str(e)
         }
 
-# Process message and add to results
+
 def process_message(message, model, results_list):
     cleaned_message, language = preprocess_message(message)
     result = classify_and_extract(cleaned_message, model)
@@ -133,14 +132,10 @@ def process_message(message, model, results_list):
     time.sleep(2)
     return result
 
-# Main execution
 if __name__ == "__main__":
-    # Vertex AI configuration
     project_id = "sandbox-451305"
     location = "us-central1"
     model_name = "gemini-2.5-flash"
-
-    # Initialize Vertex AI client
     try:
         model = configure_vertex_ai(project_id, location, model_name)
     except Exception as e:
@@ -148,7 +143,7 @@ if __name__ == "__main__":
         print(f"Failed to initialize Vertex AI client: {str(e)}")
         exit()
 
-    # Read and process WhatsApp chat file
+
     file_path = "C:/Gangadhar/Strawhat/Chat_Classification/updated_chat.txt"
 
     if not Path(file_path).is_file():
@@ -156,7 +151,6 @@ if __name__ == "__main__":
         print(f"File not found: {file_path}")
         exit()
 
-    # Read and process WhatsApp chat line by line
     results_list = []
     print("Processing messages...\n")
     try:
@@ -168,16 +162,14 @@ if __name__ == "__main__":
         exit()
 
     for line in lines:
-        # Skip empty lines, metadata, group join messages, or deleted messages
         if not line.strip() or "omitted" in line.lower() or "joined using this group's invite link" in line or "This message was deleted" in line.lower():
             logger.debug(f"Skipping line: {line.strip()}")
             continue
 
-        # Extract message content after timestamp or sender prefix if it exists
         match = re.search(r"\]\s*(.*)", line) or re.search(r"~[^:]+:\s*(.*)", line)
         message = match.group(1) if match else line.strip()
 
-        # Process each message
+
         result = process_message(message, model, results_list)
 
         print(f"Original: {message}")
